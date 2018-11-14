@@ -1,4 +1,6 @@
-# Botkit Anywhere
+# Data Natives 2018 - Chatbot Workshop - Botkit Starter Web
+
+## Botkit Anywhere
 
 Embed a bot in any web page or app with Botkit for the Web.
 
