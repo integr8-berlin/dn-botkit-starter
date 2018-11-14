@@ -28,14 +28,14 @@ module.exports = controller => {
 					} else {
 						age = parseInt(age);
 
-						if (age < 65) {
+						if (age > 0 && age < 65) {
 							/* reply with the typing delay */
 							bot.replyWithTyping(message, "You're pretty young!", (err, response) => {
 								bot.replyWithTyping(message, 'Bye bye!');
 							});
 
 							convo.stop();
-						} else {
+						} else if (age >= 65) {
 							bot.replyWithTyping(
 								message,
 								"You're not old! You are level " + age + '!',
@@ -45,6 +45,13 @@ module.exports = controller => {
 							);
 
 							convo.stop();
+						} else {
+							convo.transitionTo(
+								'age',
+								"Hmm ... didn't know this age was possible ..."
+							); /* the same behaviour can be achieved using bot.reply() + convo.repeat() */
+
+							convo.next();
 						}
 					}
 				},
