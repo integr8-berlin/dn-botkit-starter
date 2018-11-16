@@ -68,7 +68,7 @@ module.exports = controller => {
 							payload: 'no'
 						}
 					],
-					delay: 2000
+					delay: 3000
 				},
 				[
 					{
@@ -111,6 +111,7 @@ module.exports = controller => {
 		}
 	};
 
+	/* Returns the best-matched string + the similarity percentage */
 	function checkStringSimilarity(srcString, listenArr) {
 		if (listenArr.length === 0) return 0;
 		let similarity = stringSimilarity.findBestMatch(srcString.toString(), listenArr);
@@ -126,11 +127,11 @@ module.exports = controller => {
 	controller.on('message_received', async function(bot, message) {
 		let userInput = message.text;
 		let quoteProbability = checkStringSimilarity(userInput, inputsToListenFor);
+
 		if (quoteProbability.rating > 0.5) {
-			console.log('Calling example!');
 			example3(bot, message, true);
 		} else {
-			bot.replyWithTyping(message, "Emmm, you should rather type in 'quote'.");
+			bot.replyWithTyping(message, "Emmm, you should type in 'quote'.");
 		}
 	});
 };

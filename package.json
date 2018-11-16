@@ -1,43 +1,44 @@
 {
-	"name": "botkit-starter-web",
-	"version": "0.0.1",
-	"description": "A starter kit for building a custom bot for your website with Botkit Studio",
-	"main": "bot.js",
-	"scripts": {
-		"start": "nodemon bot.js"
-	},
-	"dependencies": {
-		"axios": "^0.18.0",
-		"body-parser": "^1.18.3",
-		"botkit": "^0.6.20",
-		"botkit-middleware-dialogflow": "^2.0.4",
-		"botkit-storage-mongo": "^1.0.6",
-		"botkit-studio-metrics": "0.0.4",
-		"debug": "^3.2.6",
-		"express": "^4.16.4",
-		"express-hbs": "^1.0.4",
-		"mongoose": "^4.13.17",
-		"node-env-file": "^0.1.8",
-		"nodemon": "^1.18.6",
-		"querystring": "^0.2.0",
-		"request": "^2.88.0",
-		"string-similarity": "^2.0.0",
-		"wordfilter": "^0.2.6"
-	},
-	"devDependencies": {},
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/howdyai/botkit-starter-web.git"
-	},
-	"bugs": {
-		"url": "https://github.com/howdyai/botkit-starter-web/issues"
-	},
-	"homepage": "https://github.com/howdyai/botkit-starter-web",
-	"keywords": [
-		"bots",
-		"chatbots",
-		"web chat"
-	],
-	"author": "ben@howdy.ai",
-	"license": "MIT"
+  "name": "botkit-starter-web",
+  "version": "0.0.1",
+  "description": "A starter kit for building a custom bot for your website with Botkit Studio",
+  "main": "bot.js",
+  "scripts": {
+    "start": "nodemon bot.js"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "body-parser": "^1.18.3",
+    "botkit": "^0.6.20",
+    "botkit-middleware-dialogflow": "^2.0.4",
+    "botkit-storage-mongo": "^1.0.7",
+    "botkit-studio-metrics": "0.0.4",
+    "debug": "^3.2.6",
+    "express": "^4.16.4",
+    "express-hbs": "^1.0.4",
+    "mongoose": "^4.13.17",
+    "node-env-file": "^0.1.8",
+    "nodemon": "^1.18.6",
+    "querystring": "^0.2.0",
+    "request": "^2.88.0",
+    "snyk": "^1.108.2",
+    "string-similarity": "^2.0.0",
+    "wordfilter": "^0.2.6"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/howdyai/botkit-starter-web.git"
+  },
+  "bugs": {
+    "url": "https://github.com/howdyai/botkit-starter-web/issues"
+  },
+  "homepage": "https://github.com/howdyai/botkit-starter-web",
+  "keywords": [
+    "bots",
+    "chatbots",
+    "web chat"
+  ],
+  "author": "ben@howdy.ai",
+  "license": "MIT"
 }
