@@ -1,6 +1,6 @@
 /* dialogflowMiddleware Configuration */
 const dialogflowMiddleware = require('botkit-middleware-dialogflow')({
-  keyFilename: './demo-test-263f2-22130879135f.json',  // service account private key file from Google Cloud Console
+	keyFilename: './demo-test-263f2-22130879135f.json' // service account private key file from Google Cloud Console
 });
 
 module.exports = controller => {
@@ -10,7 +10,7 @@ module.exports = controller => {
 			/* add message to the 'default' thread and trigger the 'age' thread */
 			convo.addMessage(
 				{
-					text: "Welcome to the default thread! I will now navigate to the 'age' thread!",
+					text: "Welcome to the 'default' thread! I will now navigate to the 'age' thread!",
 					action: 'age'
 				},
 				'default'
@@ -26,9 +26,8 @@ module.exports = controller => {
 					if (isNaN(age)) {
 						convo.transitionTo(
 							'age',
-
-							//dynamical responses
-							response.fulfillment.text + " I'm not that easy to fool. Type in a number!"
+							//dynamic responses
+							`${response.fulfillment.text} I'm not that easy to fool. Type in a number!`
 						); /* the same behaviour can be achieved using bot.reply() + convo.repeat() */
 
 						convo.next();
@@ -68,11 +67,11 @@ module.exports = controller => {
 		});
 	}
 
-	/* binding Controller with Dialogflow Middleware */
+	/* Bind the Botkit's controller with the Dialogflow Middleware */
 	controller.middleware.receive.use(dialogflowMiddleware.receive);
 
-	/* Trigger the flow by hearing a specific intent */
-    controller.hears('smalltalk.greetings.hello', 'message_received', dialogflowMiddleware.hears,  example1 ); 
+	/* Trigger the flow by hearing to a specific intent */
+	controller.hears('smalltalk.greetings.hello', 'message_received', dialogflowMiddleware.hears, example1);
 
 	/* Fallback handled by Dialogflow */
 	controller.on('message_received', function(bot, message) {

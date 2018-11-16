@@ -23,7 +23,8 @@ var bot_options = {
 	studio_command_uri: process.env.studio_command_uri,
 	studio_stats_uri: process.env.studio_command_uri,
 	replyWithTyping: true,
-	typingDelayFactor: 0.9
+	typingDelayFactor: 0.9,
+	debug: true
 };
 
 // Use a mongo database if specified, otherwise store in a JSON file local to the app.
@@ -54,12 +55,11 @@ controller.openSocketServer(controller.httpserver);
 // Start the bot brain in motion!!
 controller.startTicking();
 
-var normalizedPath = require('path').join(__dirname, 'skills');
-require('fs')
-	.readdirSync(normalizedPath)
-	.forEach(function(file) {
-		require('./skills/' + file)(controller);
-	});
+/* 
+	Loads the example flow #exampleNum from the skills folder.
+*/
+let exampleNum = 3;
+require(`./skills/example${exampleNum}`)(controller);
 
 console.log('I AM ONLINE! COME TALK TO ME: http://localhost:' + (process.env.PORT || 3000));
 

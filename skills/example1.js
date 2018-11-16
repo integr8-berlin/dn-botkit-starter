@@ -5,7 +5,7 @@ module.exports = controller => {
 			/* add message to the 'default' thread and trigger the 'age' thread */
 			convo.addMessage(
 				{
-					text: "Welcome to the default thread! I will now navigate to the 'age' thread!",
+					text: "Welcome to the 'default' thread! I will now navigate to the 'age' thread!",
 					action: 'age'
 				},
 				'default'
@@ -61,8 +61,12 @@ module.exports = controller => {
 		});
 	}
 
+	/* 	Listen for the first event that is sent when the front-end WebSocket
+		connection is established */
 	controller.on(['hello', 'welcome_back'], example1);
 
+	/* 	Fallback - triggers on each user's message that the bot receives 
+		WHEN and IF we're outside of the convo, e.g. after convo.stop()) */
 	controller.on('message_received', function(bot, message) {
 		bot.replyWithTyping(message, "That's it for this example.");
 	});

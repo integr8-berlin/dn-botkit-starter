@@ -7,6 +7,7 @@
 		"start": "nodemon bot.js"
 	},
 	"dependencies": {
+		"axios": "^0.18.0",
 		"body-parser": "^1.18.3",
 		"botkit": "^0.6.20",
 		"botkit-middleware-dialogflow": "^2.0.4",
@@ -20,6 +21,7 @@
 		"nodemon": "^1.18.6",
 		"querystring": "^0.2.0",
 		"request": "^2.88.0",
+		"string-similarity": "^2.0.0",
 		"wordfilter": "^0.2.6"
 	},
 	"devDependencies": {},
