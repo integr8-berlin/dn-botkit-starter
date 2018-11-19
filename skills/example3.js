@@ -91,7 +91,7 @@ module.exports = controller => {
 					{
 						default: true,
 						callback: function(response, convo) {
-							convo.repeat();
+							convo.gotoThread('send-quote');
 							convo.next();
 						}
 					}
