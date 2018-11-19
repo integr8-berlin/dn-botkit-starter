@@ -19,23 +19,10 @@ var Botkit = require('botkit');
 var debug = require('debug')('botkit:main');
 
 var bot_options = {
-	studio_token: process.env.studio_token,
-	studio_command_uri: process.env.studio_command_uri,
-	studio_stats_uri: process.env.studio_command_uri,
 	replyWithTyping: true,
-	typingDelayFactor: 0.9,
+	typingDelayFactor: 1.2,
 	debug: true
 };
-
-// Use a mongo database if specified, otherwise store in a JSON file local to the app.
-// Mongo is automatically configured when deploying to Heroku
-if (process.env.STARTER_MONGO_URI) {
-	// create a custom db access method
-	var db = require(__dirname + '/components/database.js')({});
-	bot_options.storage = db;
-} else {
-	bot_options.json_file_store = __dirname + '/.data/db/'; // store user data in a simple JSON format
-}
 
 // Create the Botkit controller, which controls all instances of the bot.
 var controller = Botkit.socketbot(bot_options);
@@ -58,15 +45,7 @@ controller.startTicking();
 /* 
 	Loads the example flow #exampleNum from the skills folder.
 */
-let exampleNum = 3;
+let exampleNum = 2;
 require(`./skills/example${exampleNum}`)(controller);
 
 console.log('I AM ONLINE! COME TALK TO ME: http://localhost:' + (process.env.PORT || 3000));
-
-function usage_tip() {
-	console.log('~~~~~~~~~~');
-	console.log('Botkit Starter Kit');
-	console.log('Execute your bot application like this:');
-	console.log('npm start');
-	console.log('~~~~~~~~~~');
-}

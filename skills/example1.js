@@ -13,7 +13,7 @@ module.exports = controller => {
 
 			/* add question to the 'age' thread */
 			convo.addQuestion(
-				{ text: 'How young are you?', input_visibility: true },
+				{ text: 'How young are you?' },
 				function(response, convo) {
 					/* response.text holds the user's message input */
 					let age = response.text;
@@ -35,7 +35,7 @@ module.exports = controller => {
 							});
 
 							convo.stop();
-						} else if (age >= 65) {
+						} else if (age >= 65 && age <= 123) {
 							bot.replyWithTyping(
 								message,
 								"You're not old! You are level " + age + '!',
@@ -63,7 +63,7 @@ module.exports = controller => {
 
 	/* 	Listen for the first event that is sent when the front-end WebSocket
 		connection is established */
-	controller.on(['hello', 'welcome_back'], example1);
+	controller.on(['hello', 'welcome_back', 'reconnect'], example1);
 
 	/* 	Fallback - triggers on each user's message that the bot receives 
 		WHEN and IF we're outside of the convo, e.g. after convo.stop()) */

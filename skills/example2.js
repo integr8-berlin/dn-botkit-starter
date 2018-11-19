@@ -4,7 +4,7 @@ const dialogflowMiddleware = require('botkit-middleware-dialogflow')({
 });
 
 module.exports = controller => {
-	function example1(bot, message) {
+	function example2(bot, message) {
 		/* start a new convo */
 		bot.startConversation(message, function(err, convo) {
 			/* add message to the 'default' thread and trigger the 'age' thread */
@@ -26,7 +26,6 @@ module.exports = controller => {
 					if (isNaN(age)) {
 						convo.transitionTo(
 							'age',
-							//dynamic responses
 							`${response.fulfillment.text} I'm not that easy to fool. Type in a number!`
 						); /* the same behaviour can be achieved using bot.reply() + convo.repeat() */
 
@@ -41,7 +40,7 @@ module.exports = controller => {
 							});
 
 							convo.stop();
-						} else if (age >= 65) {
+						} else if (age >= 65 && age <= 123) {
 							bot.replyWithTyping(
 								message,
 								"You're not old! You are level " + age + '!',
@@ -71,7 +70,7 @@ module.exports = controller => {
 	controller.middleware.receive.use(dialogflowMiddleware.receive);
 
 	/* Trigger the flow by hearing to a specific intent */
-	controller.hears('smalltalk.greetings.hello', 'message_received', dialogflowMiddleware.hears, example1);
+	controller.hears('smalltalk.greetings.hello', 'message_received', dialogflowMiddleware.hears, example2);
 
 	/* Fallback handled by Dialogflow */
 	controller.on('message_received', function(bot, message) {
