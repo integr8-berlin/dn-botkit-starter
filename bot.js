@@ -45,7 +45,7 @@ controller.startTicking();
 /* 
 	Loads the example flow #exampleNum from the skills folder.
 */
-let exampleNum = 2;
+let exampleNum = 1;
 require(`./skills/example${exampleNum}`)(controller);
 
 console.log('I AM ONLINE! COME TALK TO ME: http://localhost:' + (process.env.PORT || 3000));

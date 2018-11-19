@@ -26,7 +26,7 @@ module.exports = controller => {
 					if (isNaN(age)) {
 						convo.transitionTo(
 							'age',
-							`${response.fulfillment.text} I'm not that easy to fool. Type in a number!`
+							`${response.fulfillment.text} Please type in a number!`
 						); /* the same behaviour can be achieved using bot.reply() + convo.repeat() */
 
 						convo.next();
