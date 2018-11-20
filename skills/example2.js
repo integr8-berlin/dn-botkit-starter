@@ -10,15 +10,16 @@ const dialogflowMiddleware = require('botkit-middleware-dialogflow')({
 	keyFilename: './demo-test-263f2-22130879135f.json' // service account private key file from Google Cloud Console
 });
 
-var reply = {
-  text: 'Try ask me some questions or simply click the quick reply below:',
-  quick_replies: [
-      {
-          title: 'What is your name?',
-          payload: 'What is your name?'
-      }
-  ]
-}
+const reply = {
+	text: 'Try to ask me a question or simply click the quick reply below:',
+	quick_replies: [
+		{
+			title: 'What is your name?',
+			payload: 'What is your name?'
+		}
+	]
+};
+
 module.exports = controller => {
 	function example2(bot, message) {
 		/* start a new convo */

@@ -45,7 +45,7 @@ controller.startTicking();
 /* 
 	Loads the example flow #exampleNum from the skills folder.
 */
-let exampleNum = 1;
+let exampleNum = 2;
 try {
 	require(`./skills/example${exampleNum}`)(controller);
 } catch (err) {
