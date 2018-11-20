@@ -1,3 +1,7 @@
+/* 
+	Example4: 
+		- simple flow that asks the user a question and sends a pre-defined reply
+*/
 module.exports = controller => {
 	function example4(bot, message) {
 		/* start a new convo */

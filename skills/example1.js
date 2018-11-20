@@ -1,3 +1,7 @@
+/* 
+	Example1: 
+		- simple flow that asks the user for age and then returns a nice reply
+*/
 module.exports = controller => {
 	function example1(bot, message) {
 		/* start a new convo */

@@ -1,3 +1,9 @@
+/* 
+	Example3: 
+		- random quote bot
+		- showcases how/where to use API calls within the conversation
+*/
+
 const stringSimilarity = require('string-similarity');
 const axios = require('axios');
 const inputsToListenFor = ['quote', 'quote please', 'give me a quote', 'I want a quote'];

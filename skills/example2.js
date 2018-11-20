@@ -1,4 +1,11 @@
-/* dialogflowMiddleware Configuration */
+/* 
+	Example2: 
+		- updated example1 with Google DialogFlow NLP
+		- trigger conversation start by typing a greeting (e.g. hello, hi, hey ...)
+		- after the conversation you can still have small talk with the bot
+*/
+
+/* DialogFlow Middleware Configuration */
 const dialogflowMiddleware = require('botkit-middleware-dialogflow')({
 	keyFilename: './demo-test-263f2-22130879135f.json' // service account private key file from Google Cloud Console
 });

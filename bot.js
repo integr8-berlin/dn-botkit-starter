@@ -24,8 +24,8 @@ var bot_options = {
 	debug: true
 };
 
-// Create the Botkit controller, which controls all instances of the bot.
-var controller = Botkit.socketbot(bot_options);
+// Create the Botkit controller, which controls all instances of the bot. (for platform WEB it can also be declared as Botkit.socketbot(bot_options))
+var controller = Botkit.anywhere(bot_options);
 
 // Set up an Express-powered webserver to expose oauth and webhook endpoints
 var webserver = require(__dirname + '/components/express_webserver.js')(controller);
@@ -46,6 +46,11 @@ controller.startTicking();
 	Loads the example flow #exampleNum from the skills folder.
 */
 let exampleNum = 1;
-require(`./skills/example${exampleNum}`)(controller);
-
+try {
+	require(`./skills/example${exampleNum}`)(controller);
+} catch (err) {
+	console.warn(
+		`*** Example number ${exampleNum} does not exist. Take a look in the 'skills' folder and change the 'exampleNum' variable to a correct value. ***`
+	);
+}
 console.log('I AM ONLINE! COME TALK TO ME: http://localhost:' + (process.env.PORT || 3000));
