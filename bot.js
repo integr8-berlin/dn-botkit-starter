@@ -45,7 +45,7 @@ controller.startTicking();
 /* 
 	Loads the example flow #exampleNum from the skills folder.
 */
-let exampleNum = 2;
+let exampleNum = 3;
 try {
 	require(`./skills/example${exampleNum}`)(controller);
 } catch (err) {
@@ -53,4 +53,7 @@ try {
 		`*** Example number ${exampleNum} does not exist. Take a look in the 'skills' folder and change the 'exampleNum' variable to a correct value. ***`
 	);
 }
+
+// require('./skills/bmi.js')(controller);
+
 console.log('I AM ONLINE! COME TALK TO ME: http://localhost:' + (process.env.PORT || 3000));
